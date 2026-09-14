@@ -1,3 +1,4 @@
+```tsx
 "use client";
 
 import Link from "next/link";
@@ -14,17 +15,19 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b bg-white shadow-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8">
 
-        {/* Logo */}
+        {/* Business Logo / Name */}
         <Link
           href="/"
           onClick={closeMenu}
-          className="text-xl font-extrabold tracking-tight sm:text-2xl"
+          className="text-lg font-extrabold tracking-tight sm:text-xl"
         >
-          🛒 <span className="text-green-600">SUPER</span>STORE
+          🛒{" "}
+          <span className="text-green-600">NASSER</span>{" "}
+          ENTERPRISE
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-7 md:flex">
 
           <Link
             href="/"
@@ -155,3 +158,4 @@ export default function Navbar() {
     </header>
   );
 }
+```
