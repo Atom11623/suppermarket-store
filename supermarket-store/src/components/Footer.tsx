@@ -95,6 +95,3 @@ return ( <footer className="bg-gray-950 text-white"> <div className="mx-auto gri
 
 );
 }
-
-```
-```
