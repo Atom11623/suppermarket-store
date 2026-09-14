@@ -29,7 +29,6 @@ stock: 100,
 icon: "🍚",
 featured: true,
 },
-
 {
 id: "2",
 name: "Spaghetti",
@@ -45,7 +44,6 @@ stock: 100,
 icon: "🍝",
 featured: true,
 },
-
 {
 id: "3",
 name: "Macaroni",
@@ -61,7 +59,6 @@ stock: 100,
 icon: "🍝",
 featured: true,
 },
-
 {
 id: "4",
 name: "Indomie Instant Noodles",
@@ -77,7 +74,6 @@ stock: 120,
 icon: "🍜",
 featured: true,
 },
-
 {
 id: "5",
 name: "Cooking Oil",
@@ -93,7 +89,6 @@ stock: 80,
 icon: "🫗",
 featured: true,
 },
-
 {
 id: "6",
 name: "Milk",
@@ -109,7 +104,6 @@ stock: 70,
 icon: "🥛",
 featured: true,
 },
-
 {
 id: "7",
 name: "Assorted Biscuits",
@@ -125,7 +119,6 @@ stock: 100,
 icon: "🍪",
 featured: true,
 },
-
 {
 id: "8",
 name: "Cream Biscuits",
@@ -141,7 +134,6 @@ stock: 80,
 icon: "🍪",
 featured: false,
 },
-
 {
 id: "9",
 name: "Omo Detergent",
@@ -157,7 +149,6 @@ stock: 60,
 icon: "🧼",
 featured: true,
 },
-
 {
 id: "10",
 name: "Laundry Detergent",
@@ -173,7 +164,6 @@ stock: 70,
 icon: "🧺",
 featured: false,
 },
-
 {
 id: "11",
 name: "Tissue Paper",
@@ -189,7 +179,6 @@ stock: 100,
 icon: "🧻",
 featured: false,
 },
-
 {
 id: "12",
 name: "Bottled Water",
@@ -205,7 +194,6 @@ stock: 200,
 icon: "💧",
 featured: true,
 },
-
 {
 id: "13",
 name: "Soft Drinks",
@@ -221,7 +209,6 @@ stock: 100,
 icon: "🥤",
 featured: true,
 },
-
 {
 id: "14",
 name: "Fruit Juice",
@@ -237,7 +224,6 @@ stock: 80,
 icon: "🧃",
 featured: true,
 },
-
 {
 id: "15",
 name: "Malt Drink",
@@ -253,7 +239,6 @@ stock: 80,
 icon: "🥤",
 featured: false,
 },
-
 {
 id: "16",
 name: "Energy Drink",
@@ -269,7 +254,6 @@ stock: 60,
 icon: "⚡",
 featured: false,
 },
-
 {
 id: "17",
 name: "Juice Drinks",
@@ -285,7 +269,6 @@ stock: 75,
 icon: "🧃",
 featured: false,
 },
-
 {
 id: "18",
 name: "Bathing Soap",
@@ -301,7 +284,6 @@ stock: 90,
 icon: "🧼",
 featured: false,
 },
-
 {
 id: "19",
 name: "Toothpaste",
@@ -317,7 +299,6 @@ stock: 80,
 icon: "🪥",
 featured: false,
 },
-
 {
 id: "20",
 name: "Cooking Pot Set",
@@ -369,25 +350,5 @@ product.description.toLowerCase().includes(term)
 );
 }
 
-````
-
-### GitHub steps
-
-1. Open `src/data/products.ts`.
-2. Click **Edit**.
-3. Press **Ctrl+A** inside the editor.
-4. Delete everything.
-5. Paste the complete code above.
-6. Make sure the **first line is exactly**:
-   `export type Product = {`
-7. Make sure the **last line is exactly**:
-   `}`
-8. There must be **no ` ``` ` anywhere** in the file.
-9. Commit with:
-
-`Fix products data file`
-
-10. Wait for Vercel to deploy again.
-
-**Do not change `page.tsx` now.** This version correctly provides the `products` export that your Vercel build is complaining about.
-````
+```
+```
