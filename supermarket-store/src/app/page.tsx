@@ -39,33 +39,26 @@ const categories = [
 
 export default function Home() {
   const featuredProducts = products.filter(
-    (product) => product.featured
+    (product) => product.featured === true
   );
 
   return (
     <main className="min-h-screen bg-white text-gray-900">
-
       <Navbar />
 
       {/* HERO */}
       <section className="bg-green-700 text-white">
-
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-20 lg:grid-cols-2 lg:px-8 lg:py-28">
-
           <div>
-
             <span className="rounded-full bg-white/10 px-4 py-2 text-sm font-medium">
               Nasser Enterprise NIG. LTD
             </span>
 
             <h1 className="mt-7 text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
-
               Quality Products,
-
               <span className="block text-green-200">
                 Great Prices.
               </span>
-
             </h1>
 
             <p className="mt-6 max-w-xl text-lg leading-8 text-green-50">
@@ -75,7 +68,6 @@ export default function Home() {
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-
               <Link
                 href="/products"
                 className="rounded-xl bg-white px-7 py-4 text-center font-bold text-green-700 transition hover:bg-gray-100"
@@ -89,66 +81,44 @@ export default function Home() {
               >
                 Wholesale Orders
               </Link>
-
             </div>
-
           </div>
 
           <div className="flex justify-center">
-
             <div className="flex h-72 w-72 items-center justify-center rounded-full bg-white/10 text-8xl shadow-2xl sm:h-96 sm:w-96">
               🛒
             </div>
-
           </div>
-
         </div>
-
       </section>
 
-      {/* BUSINESS BENEFITS */}
+      {/* BENEFITS */}
       <section className="border-b bg-white">
-
         <div className="mx-auto grid max-w-7xl gap-6 px-4 py-8 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
-
           {[
             ["🚚", "Convenient Shopping", "Shop from anywhere"],
             ["✓", "Quality Products", "Products for homes and businesses"],
             ["💰", "Competitive Prices", "Great retail and wholesale prices"],
             ["📦", "Bulk Orders", "Wholesale options available"],
           ].map(([icon, title, description]) => (
-
             <div key={title} className="flex gap-4">
-
-              <span className="text-3xl">
-                {icon}
-              </span>
+              <span className="text-3xl">{icon}</span>
 
               <div>
-
-                <h3 className="font-bold">
-                  {title}
-                </h3>
+                <h3 className="font-bold">{title}</h3>
 
                 <p className="text-sm text-gray-500">
                   {description}
                 </p>
-
               </div>
-
             </div>
-
           ))}
-
         </div>
-
       </section>
 
       {/* CATEGORIES */}
       <section className="mx-auto max-w-7xl px-4 py-20 lg:px-8">
-
         <div>
-
           <p className="font-semibold text-green-600">
             SHOP NASSER ENTERPRISE
           </p>
@@ -161,19 +131,15 @@ export default function Home() {
             Find groceries, drinks, household products and
             everyday essentials.
           </p>
-
         </div>
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-
           {categories.map((category) => (
-
             <Link
               href="/categories"
               key={category.name}
               className="group rounded-2xl border bg-white p-6 text-center shadow-sm transition hover:-translate-y-1 hover:border-green-300 hover:shadow-lg"
             >
-
               <div className="text-5xl transition group-hover:scale-110">
                 {category.icon}
               </div>
@@ -185,20 +151,14 @@ export default function Home() {
               <p className="mt-2 text-xs leading-5 text-gray-500">
                 {category.description}
               </p>
-
             </Link>
-
           ))}
-
         </div>
-
       </section>
 
       {/* FEATURED PRODUCTS */}
       <section className="bg-gray-50">
-
         <div className="mx-auto max-w-7xl px-4 py-20 lg:px-8">
-
           <p className="font-semibold text-green-600">
             POPULAR PRODUCTS
           </p>
@@ -212,34 +172,26 @@ export default function Home() {
           </p>
 
           <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-
             {featuredProducts.slice(0, 8).map((product) => (
-
               <div
                 key={product.id}
                 className="overflow-hidden rounded-2xl border bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
               >
-
                 <Link href={`/products/${product.id}`}>
-
                   <div className="flex h-48 items-center justify-center bg-gray-100 text-7xl">
                     {product.icon}
                   </div>
-
                 </Link>
 
                 <div className="p-5">
-
                   <p className="text-xs font-medium text-green-600">
                     {product.category}
                   </p>
 
                   <Link href={`/products/${product.id}`}>
-
                     <h3 className="mt-2 font-bold hover:text-green-600">
                       {product.name}
                     </h3>
-
                   </Link>
 
                   <p className="mt-1 text-sm text-gray-500">
@@ -247,7 +199,6 @@ export default function Home() {
                   </p>
 
                   <div className="mt-5 flex items-center justify-between">
-
                     <span className="font-bold">
                       ₦{product.price.toLocaleString()}
                     </span>
@@ -258,41 +209,28 @@ export default function Home() {
                     >
                       View
                     </Link>
-
                   </div>
-
                 </div>
-
               </div>
-
             ))}
-
           </div>
 
           <div className="mt-10 text-center">
-
             <Link
               href="/products"
               className="inline-block rounded-xl bg-green-600 px-7 py-4 font-bold text-white hover:bg-green-700"
             >
               View All Products →
             </Link>
-
           </div>
-
         </div>
-
       </section>
 
       {/* WHOLESALE */}
       <section className="mx-auto max-w-7xl px-4 py-20 lg:px-8">
-
         <div className="rounded-3xl bg-gray-950 px-6 py-14 text-white sm:px-12 lg:px-16">
-
           <div className="grid items-center gap-10 lg:grid-cols-2">
-
             <div>
-
               <span className="font-semibold text-green-400">
                 RETAIL & WHOLESALE
               </span>
@@ -313,27 +251,19 @@ export default function Home() {
               >
                 Explore Wholesale →
               </Link>
-
             </div>
 
             <div className="text-center text-8xl">
               📦
             </div>
-
           </div>
-
         </div>
-
       </section>
 
       {/* LOCATION */}
       <section className="bg-green-50">
-
         <div className="mx-auto max-w-7xl px-4 py-14 text-center lg:px-8">
-
-          <p className="text-3xl">
-            📍
-          </p>
+          <p className="text-3xl">📍</p>
 
           <h2 className="mt-3 text-2xl font-bold">
             Visit Nasser Enterprise
@@ -343,13 +273,10 @@ export default function Home() {
             No. 001 Hausa Quarters, Obajana,
             Lokoja, Kogi State, Nigeria.
           </p>
-
         </div>
-
       </section>
 
       <Footer />
-
     </main>
   );
 }
