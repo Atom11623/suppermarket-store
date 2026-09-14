@@ -19,10 +19,7 @@ return ( <header className="sticky top-0 z-50 border-b bg-white shadow-sm"> <div
 
 ```
     <nav className="hidden items-center gap-7 md:flex">
-      <Link
-        href="/"
-        className="font-medium hover:text-green-600"
-      >
+      <Link href="/" className="font-medium hover:text-green-600">
         Home
       </Link>
 
@@ -140,6 +137,3 @@ return ( <header className="sticky top-0 z-50 border-b bg-white shadow-sm"> <div
 
 );
 }
-
-```
-```
