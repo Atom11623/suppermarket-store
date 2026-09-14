@@ -15,11 +15,6 @@ export type Product = {
 };
 
 export const products: Product[] = [
-
-  // =========================
-  // GROCERIES
-  // =========================
-
   {
     id: "1",
     name: "Premium Rice",
@@ -35,7 +30,6 @@ export const products: Product[] = [
     icon: "🍚",
     featured: true,
   },
-
   {
     id: "2",
     name: "Spaghetti",
@@ -51,7 +45,6 @@ export const products: Product[] = [
     icon: "🍝",
     featured: true,
   },
-
   {
     id: "3",
     name: "Macaroni",
@@ -67,7 +60,6 @@ export const products: Product[] = [
     icon: "🍝",
     featured: true,
   },
-
   {
     id: "4",
     name: "Indomie Instant Noodles",
@@ -83,7 +75,6 @@ export const products: Product[] = [
     icon: "🍜",
     featured: true,
   },
-
   {
     id: "5",
     name: "Cooking Oil",
@@ -99,7 +90,6 @@ export const products: Product[] = [
     icon: "🫗",
     featured: true,
   },
-
   {
     id: "6",
     name: "Milk",
@@ -115,11 +105,6 @@ export const products: Product[] = [
     icon: "🥛",
     featured: true,
   },
-
-  // =========================
-  // BISCUITS & SNACKS
-  // =========================
-
   {
     id: "7",
     name: "Assorted Biscuits",
@@ -135,7 +120,6 @@ export const products: Product[] = [
     icon: "🍪",
     featured: true,
   },
-
   {
     id: "8",
     name: "Cream Biscuits",
@@ -151,11 +135,6 @@ export const products: Product[] = [
     icon: "🍪",
     featured: false,
   },
-
-  // =========================
-  // HOUSEHOLD
-  // =========================
-
   {
     id: "9",
     name: "Omo Detergent",
@@ -171,7 +150,6 @@ export const products: Product[] = [
     icon: "🧼",
     featured: true,
   },
-
   {
     id: "10",
     name: "Laundry Detergent",
@@ -187,7 +165,6 @@ export const products: Product[] = [
     icon: "🧺",
     featured: false,
   },
-
   {
     id: "11",
     name: "Tissue Paper",
@@ -203,11 +180,6 @@ export const products: Product[] = [
     icon: "🧻",
     featured: false,
   },
-
-  // =========================
-  // DRINKS & BEVERAGES
-  // =========================
-
   {
     id: "12",
     name: "Bottled Water",
@@ -223,7 +195,6 @@ export const products: Product[] = [
     icon: "💧",
     featured: true,
   },
-
   {
     id: "13",
     name: "Soft Drinks",
@@ -239,7 +210,6 @@ export const products: Product[] = [
     icon: "🥤",
     featured: true,
   },
-
   {
     id: "14",
     name: "Fruit Juice",
@@ -255,7 +225,6 @@ export const products: Product[] = [
     icon: "🧃",
     featured: true,
   },
-
   {
     id: "15",
     name: "Malt Drink",
@@ -271,7 +240,6 @@ export const products: Product[] = [
     icon: "🥤",
     featured: false,
   },
-
   {
     id: "16",
     name: "Energy Drink",
@@ -287,7 +255,6 @@ export const products: Product[] = [
     icon: "⚡",
     featured: false,
   },
-
   {
     id: "17",
     name: "Juice Drinks",
@@ -303,11 +270,6 @@ export const products: Product[] = [
     icon: "🧃",
     featured: false,
   },
-
-  // =========================
-  // PERSONAL CARE
-  // =========================
-
   {
     id: "18",
     name: "Bathing Soap",
@@ -323,7 +285,6 @@ export const products: Product[] = [
     icon: "🧼",
     featured: false,
   },
-
   {
     id: "19",
     name: "Toothpaste",
@@ -339,11 +300,6 @@ export const products: Product[] = [
     icon: "🪥",
     featured: false,
   },
-
-  // =========================
-  // KITCHEN
-  // =========================
-
   {
     id: "20",
     name: "Cooking Pot Set",
@@ -361,26 +317,26 @@ export const products: Product[] = [
   },
 ];
 
-export function getProductById(id: string) {
+export function getProductById(id: string): Product | undefined {
   return products.find((product) => product.id === id);
 }
 
-export function getProductBySlug(slug: string) {
+export function getProductBySlug(slug: string): Product | undefined {
   return products.find((product) => product.slug === slug);
 }
 
-export function getFeaturedProducts() {
+export function getFeaturedProducts(): Product[] {
   return products.filter((product) => product.featured);
 }
 
-export function getProductsByCategory(category: string) {
+export function getProductsByCategory(category: string): Product[] {
   return products.filter(
     (product) =>
       product.category.toLowerCase() === category.toLowerCase()
   );
 }
 
-export function searchProducts(searchTerm: string) {
+export function searchProducts(searchTerm: string): Product[] {
   const term = searchTerm.toLowerCase().trim();
 
   if (!term) {
