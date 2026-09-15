@@ -4,7 +4,7 @@ export default function Footer() {
 return ( <footer className="bg-gray-950 text-white"> <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4 lg:px-8"> <div> <h2 className="text-xl font-extrabold sm:text-2xl">
 🛒 <span className="text-green-500">NASSER</span> ENTERPRISE </h2>
 
-```
+
       <p className="mt-4 leading-7 text-gray-400">
         Nasser Enterprise NIG. LTD is your trusted destination
         for groceries, beverages, household essentials and
@@ -91,7 +91,7 @@ return ( <footer className="bg-gray-950 text-white"> <div className="mx-auto gri
     </div>
   </div>
 </footer>
-```
+
 
 );
 }
