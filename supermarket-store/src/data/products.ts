@@ -349,6 +349,3 @@ product.category.toLowerCase().includes(term) ||
 product.description.toLowerCase().includes(term)
 );
 }
-
-```
-```

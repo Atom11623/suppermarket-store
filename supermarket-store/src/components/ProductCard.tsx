@@ -1,12 +1,23 @@
+"use client";
+
 import Link from "next/link";
 import type { Product } from "@/data/products";
+import { useCart } from "@/context/CartContext";
+import { useToast } from "@/context/ToastContext";
 
 type ProductCardProps = {
   product: Product;
 };
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const { addToCart } = useCart();
+  const { showToast } = useToast();
   const isOutOfStock = product.stock <= 0;
+
+  function handleAddToCart() {
+    addToCart(product, 1);
+    showToast(`${product.name} added to cart`);
+  }
 
   return (
     <div className="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
@@ -105,6 +116,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
           <button
             type="button"
+            onClick={handleAddToCart}
             disabled={isOutOfStock}
             className="flex-1 rounded-lg bg-green-600 px-3 py-2.5 text-sm font-bold text-white transition hover:bg-green-700 disabled:cursor-not-allowed disabled:bg-gray-300"
           >

@@ -9,6 +9,10 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@netlify/database": "^2.0.1",
+    "@netlify/functions": "^6.0.0",
+    "@netlify/identity": "^2.0.0",
+    "drizzle-orm": "^1.0.0-beta.22",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"
@@ -18,6 +22,7 @@
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "drizzle-kit": "^1.0.0-beta.22",
     "eslint": "latest",
     "eslint-config-next": "latest",
     "tailwindcss": "latest",
