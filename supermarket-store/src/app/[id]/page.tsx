@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import AddToCartPanel from "@/components/AddToCartPanel";
 import { getProductById, products } from "@/data/products";
 
 type ProductDetailsPageProps = {
@@ -155,49 +156,7 @@ export default async function ProductDetailsPage({
 
             </div>
 
-            {/* Quantity */}
-            <div className="mt-6">
-
-              <label
-                htmlFor="quantity"
-                className="block text-sm font-semibold"
-              >
-                Quantity
-              </label>
-
-              <input
-                id="quantity"
-                type="number"
-                min="1"
-                defaultValue="1"
-                max={product.stock}
-                disabled={isOutOfStock}
-                className="mt-2 w-24 rounded-lg border border-gray-300 px-3 py-2 outline-none focus:border-green-600"
-              />
-
-            </div>
-
-            {/* Actions */}
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-
-              <button
-                type="button"
-                disabled={isOutOfStock}
-                className="flex-1 rounded-xl bg-green-600 px-6 py-4 font-bold text-white transition hover:bg-green-700 disabled:cursor-not-allowed disabled:bg-gray-300"
-              >
-                {isOutOfStock
-                  ? "Out of Stock"
-                  : "Add to Cart"}
-              </button>
-
-              <Link
-                href="/cart"
-                className="flex-1 rounded-xl border border-gray-300 px-6 py-4 text-center font-bold transition hover:border-green-600 hover:text-green-600"
-              >
-                View Cart
-              </Link>
-
-            </div>
+            <AddToCartPanel product={product} isOutOfStock={isOutOfStock} />
 
             {/* Wholesale Notice */}
             <div className="mt-8 rounded-2xl border border-green-100 bg-green-50 p-5">

@@ -1,3 +1,6 @@
+"use client";
+
+import { useMemo, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
@@ -6,14 +9,34 @@ import { products } from "@/data/products";
 const categories = [
   "All",
   "Groceries",
+  "Biscuits & Snacks",
   "Household",
-  "Beverages",
+  "Drinks & Beverages",
   "Personal Care",
   "Kitchen",
-  "Baby Products",
 ];
 
 export default function ProductsPage() {
+  const [search, setSearch] = useState("");
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const filteredProducts = useMemo(() => {
+    const term = search.toLowerCase().trim();
+
+    return products.filter((product) => {
+      const matchesCategory =
+        activeCategory === "All" || product.category === activeCategory;
+
+      const matchesSearch =
+        !term ||
+        product.name.toLowerCase().includes(term) ||
+        product.category.toLowerCase().includes(term) ||
+        product.description.toLowerCase().includes(term);
+
+      return matchesCategory && matchesSearch;
+    });
+  }, [search, activeCategory]);
+
   return (
     <main className="min-h-screen bg-white text-gray-900">
 
@@ -54,7 +77,7 @@ export default function ProductsPage() {
             </h2>
 
             <p className="mt-1 text-sm text-gray-500">
-              {products.length} products available
+              {filteredProducts.length} of {products.length} products
             </p>
 
           </div>
@@ -63,6 +86,8 @@ export default function ProductsPage() {
 
             <input
               type="search"
+              value={search}
+              onChange={(event) => setSearch(event.target.value)}
               placeholder="Search products..."
               className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
             />
@@ -74,13 +99,14 @@ export default function ProductsPage() {
         {/* Category Filters */}
         <div className="mt-8 flex gap-3 overflow-x-auto pb-2">
 
-          {categories.map((category, index) => (
+          {categories.map((category) => (
 
             <button
               key={category}
               type="button"
+              onClick={() => setActiveCategory(category)}
               className={`whitespace-nowrap rounded-full px-5 py-2.5 text-sm font-semibold transition ${
-                index === 0
+                activeCategory === category
                   ? "bg-green-600 text-white"
                   : "border border-gray-200 bg-white text-gray-600 hover:border-green-600 hover:text-green-600"
               }`}
@@ -93,16 +119,26 @@ export default function ProductsPage() {
         </div>
 
         {/* Product Grid */}
-        <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+        {filteredProducts.length > 0 ? (
+          <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
 
-          {products.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-            />
-          ))}
+            {filteredProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+              />
+            ))}
 
-        </div>
+          </div>
+        ) : (
+          <div className="mt-16 flex flex-col items-center gap-3 text-center">
+            <span className="text-5xl">🔍</span>
+            <p className="text-lg font-bold">No products found</p>
+            <p className="text-sm text-gray-500">
+              Try a different search term or category.
+            </p>
+          </div>
+        )}
 
       </section>
 
