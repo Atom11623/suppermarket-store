@@ -298,21 +298,3 @@ export default function Home() {
     </main>
   );
 }
-
-After pasting, the very last line must be:
-
-}
-
-There must be nothing after it.
-
-Then click Commit changes.
-
-This file is only:
-
-src/app/page.tsx
-
-Do not put this code in:
-
-src/app/products/[id]/page.tsx
-
-That second page is a separate product-details page.
